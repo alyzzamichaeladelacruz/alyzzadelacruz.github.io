@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@alyzza_dc</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap");
+
+        .body {
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .navbar,
+        .footer {
+            background-color: #a53860;
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .navbar-brand,
+        .nav-link,
+        .footer-text {
+            color: #ffffff;
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .buttonfeature {
+            background-color: #a53860;
+            color: #ffffff;
+            border: none;
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .buttonfeature:hover{
+            background-color:#eda1b4;
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .carousel-feature-section {
+            background-color: #f1f7f9;
+            padding: 30px 0;
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .project-section {
+            background-color: #f3d6dd;
+            padding: 30px 0;
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .about-section {
+            background-color: #ffffff;
+            padding: 30px 0;
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .project-title {
+            color: #fff;
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .project-card {
+            background-color: #a53860;
+            color: #ffffff;
+            /* White text for contrast */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s;
+            margin: auto;
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .project-card:hover {
+            color: #eda1b4;
+            transform: scale(1.1);
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .modal-70 {
+            max-width: 70%;
+        }
+
+        /* carousel custom style */
+        .carousel-container {
+            width: 100%;
+            max-width: 1300px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 20px;
+            margin: 0 auto;
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        /* responsiveness */
+        @media (max-width: 768px) {
+
+            .carousel-container,
+            .carousel-inner img {
+                height: 250px;
+            }
+        }
+
+        .btn-project {
+            background-color: #a53860;
+            /* Pink color */
+            color: #fff;
+            border: none;
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .btn-project:hover {
+            background-color: #eda1b4;
+            font-family: "Poppins", "sans-serif";
+            /* Darker pink for hover effect */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">alyzzamichaeladelacruz</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel and Featured Section (Beige Background) -->
+    <div id="home" class="carousel-feature-section">
+        <div class="carousel-feature-section">
+            <div class="carousel-container my-5">
+                <div id="alyCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active"> <!--carousel project 1-->
+                            <img src="https://i.imgur.com/yUB1qFW.gif" class="d-block w-100" alt="Slide 1"
+                                data-bs-toggle="modal" data-bs-target="#carouselModal1">
+                        </div>
+                        <div class="carousel-item"> <!--carousel project 2-->
+                            <img src="https://i.imgur.com/bBmKFfI.gif" class="d-block w-100" alt="Slide 2"
+                                data-bs-toggle="modal" data-bs-target="#carouselModal2">
+                        </div>
+                        <div class="carousel-item"> <!--carousel project 3-->
+                            <img src="https://i.imgur.com/SYLkDSG.gif" class="d-block w-100" alt="Slide 3"
+                                data-bs-toggle="modal" data-bs-target="#carouselModal3">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#alyCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#alyCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- Carousel Modal -->
+            <div class="modal fade" id="carouselModal1" tabindex="-1" aria-labelledby="carouselModalLabel1"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content" style="background-color: #ffffff;">
+                        <div class="modal-header" style="background-color: #a53860; color: #ffffff;">
+                            <!-- header label-->
+                            <h5 class="modal-title" id="carouselModalLabel1">PROJECT ONE</h5><!--modal header label-->
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="https://i.imgur.com/yUB1qFW.gif" class="img-fluid rounded" alt="Slide 1"
+                                style="max-width: 100%; height: auto;">
+                            <p class="mt-3">as cute as a button</p><!-- description of the project -->
+                            <a href="project1.html" class="btn btn-project mt-3" target="_blank">View Project</a>
+                            <!-- button link to the new project -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Featured Section -->
+            <div class="container my-5">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h1 class="display" style="color: #8b0561;">IN THE SPOTLIGHT!</h1>
+                        <p class="lead">"In the Spotlight" features standout website projects that exemplify innovative
+                            design, functionality, and user experience, highlighting the creativity and technical skills
+                            of the creators.</p>
+                        <a href="project1.html" class="btn buttonfeature btn-lg mb-3 mb-lg-0" target="_blank">View
+                            Project</a>
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="https://i.imgur.com/yUB1qFW.gif" class="img-fluid rounded" alt="Featured Project">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Project Section (Baby Pink Background) -->
+    <div id="projects" class="project-section">
+        <div class="project-section">
+            <div class="container my-5">
+                <h2 class="mb-4" style="color: #8b0561;">Idea Hub</h2>
+                <div class="row">
+                    <!-- Project Cards -->
+                    <div class="col-md-3 mb-4"><!--project 1 card-->
+                        <div class="card project-card" data-bs-toggle="modal" data-bs-target="#projectsCard1">
+                            <img src="https://i.imgur.com/RhxMluq.png" class="card-img-top" alt="Project 1">
+                            <div class="card-body">
+                                <h5 class="project-title">PROJECT ONE</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4"><!--project 2 card-->
+                        <div class="card project-card" data-bs-toggle="modal" data-bs-target="#projectsCard2">
+                            <img src="https://i.imgur.com/F0cLNDB.png" class="card-img-top" alt="Project 2">
+                            <div class="card-body">
+                                <h5 class="project-title">PROJECT TWO</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4"><!--project 3 card-->
+                        <div class="card project-card" data-bs-toggle="modal" data-bs-target="#projectsCard3">
+                            <img src="https://i.imgur.com/uFxen6d.png" class="card-img-top" alt="Project 3">
+                            <div class="card-body">
+                                <h5 class="project-title">PROJECT THREE</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4"><!--project 4 modal-->
+                        <div class="card project-card" data-bs-toggle="modal" data-bs-target="#projectsCard4">
+                            <img src="https://i.imgur.com/m8X8cFW.png" class="card-img-top" alt="Project 4">
+                            <div class="card-body">
+                                <h5 class="project-title">PROJECT FOUR</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add cards of new projects -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Modals -->
+        <div class="modal fade" id="projectsCard1" tabindex="-1" aria-labelledby="projectsCard1Label"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: #ffffff;">
+                    <div class="modal-header" style="background-color:#a53860; color: #ffffff;">
+                        <h5 class="modal-title" id="projectsCard1Label">PROJECT ONE</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="https://i.imgur.com/yUB1qFW.gif" class="img-fluid rounded" alt="Project 1"
+                            style="max-width: 100%; height: auto;">
+                        <p class="mt-3">as cute as a button</p>
+                        <a href="project1.html" class="btn btn-project mt-3" target="_blank">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- About Section (White Background) -->
+    <div id="about" class="about-section">
+        <div class="about-section">
+            <div class="container my-5">
+                <div class="row align-items-center">
+                    <div class="col-md-2 text-center">
+                        <img src="https://i.imgur.com/ZHrQ5P7.jpeg" class="img-fluid rounded-circle"
+                            alt="Author's Picture">
+                    </div>
+                    <div class="col-md-8">
+                        <h2 style="color: #8b0561;">About the Author</h2>
+                        <p>Hello! I'm Alyzza Michael Dela Cruz, a passionate web developer and designer dedicated to
+                            creating
+                            beautiful, user-friendly websites. I enjoy working with the latest technologies to bring
+                            creative
+                            ideas to life and deliver meaningful digital experiences.</p>
+                        <div class="social-links mt-3">
+                            <a href="https://www.facebook.com/alyzzamichaela.delacruz" class="btn buttonfeature btn-lg mb-3 mb-lg-0" target="_blank">
+                                <i class="bi bi-facebook"></i> Facebook
+                            </a>
+                            <a href="https://www.instagram.com/alyzzaaaaam/" class="btn buttonfeature btn-lg mb-3 mb-lg-0" target="_blank"
+                                class="btn btn-outline-secondary me-2">
+                                <i class="bi bi-instagram"></i> Instagram
+                            </a>
+                            <a href="https://www.linkedin.com/in/alyzza-michaela-p-dela-cruz-2935a5256/" class="btn buttonfeature btn-lg mb-3 mb-lg-0" target="_blank"
+                                class="btn btn-outline-secondary">
+                                <i class="bi bi-linkedin"></i> LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap Icons CDN (required for social media icons) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <!-- Footer -->
+    <footer class="footer mt-5 py-4">
+        <div class="container text-center">
+            <p class="footer-text">alyzzamichaeladelacruz</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Auto slide script -->
+    <script>
+        // Automatically cycle through carousel items every 3 seconds
+        const carousel = document.querySelector('#alyCarousel');
+        const bootstrapCarousel = new bootstrap.Carousel(carousel, {
+            interval: 3000, // 3 seconds
+            ride: 'carousel'
+        });
+    </script>
+
+</body>
+
+</html>
