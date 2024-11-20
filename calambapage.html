@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calamba</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+        body {
+            font-family: Poppins;
+            margin: 0;
+            background-color: #0d3d86;
+            color: #eee;
+        }
+
+        .navbar .nav-link {
+            color: #081b7a
+        }
+
+        .navbar .nav-link:hover {
+            color: #081b7a;
+        }
+
+        svg {
+            width: 25px;
+        }
+
+
+        .slider {
+            height: 100vh;
+            margin-top: -50px;
+            position: relative;
+        }
+
+        .slider .list .item {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: .5s;
+        }
+
+        .slider .list .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider .list .item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider .list .item::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-image: linear-gradient(to top, #0d3d86 5%, transparent);
+        }
+
+        .slider .list .item .content {
+            position: absolute;
+            left: 10%;
+            top: 20%;
+            width: 500px;
+            max-width: 80%;
+            z-index: 1;
+        }
+
+        .slider .list .item.active {
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .arrows {
+            position: absolute;
+            top: 30%;
+            right: 50px;
+            z-index: 100;
+        }
+
+        .arrows button {
+            background-color: #eee5;
+            border: none;
+            font-family: monospace;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            font-size: x-large;
+            color: #eee;
+            transition: .5s;
+        }
+
+        .arrows button:hover {
+            background-color: #eee;
+            color: #081b7a;
+        }
+
+        .thumbnail {
+            position: absolute;
+            bottom: 50px;
+            z-index: 11;
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            height: 250px;
+            padding: 0 50px;
+            box-sizing: border-box;
+            overflow: auto;
+            justify-content: center;
+        }
+
+        .thumbnail .item {
+            width: 150px;
+            height: 220px;
+            filter: brightness(.5);
+            transition: .5s;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .thumbnail .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .thumbnail .item.active {
+            filter: brightness(1.5);
+        }
+
+        .thumbnail .item .visit-btn {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #081b7a;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .thumbnail .item:hover .visit-btn {
+            opacity: 1;
+        }
+
+        .banner {
+            width: 100%;
+            background-color: #0d3d86;
+            color: white;
+            text-align: center;
+        }
+
+        .banner h2 {
+            font-size: 36px;
+            margin-bottom: 5px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .city-logo {
+            width: 75%;
+            height: 75%;
+            position: center;
+        }
+
+        .city-content{
+            padding-left: 0%;
+        }
+
+        .city-map {
+            position: relative;
+            padding-top: 75%;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #007bff;
+        }
+
+        .city-map iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 15px;
+        }
+
+        .footer {
+            background-color: #081b7a;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer-content p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 10px 0;
+            }
+
+            .footer-content p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://alyzzamichaeladelacruz.github.io/">alyzzamichaeladelacruz</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mustvisit">Must Visit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="gallery" class="slider">
+        <div class="list">
+            <div class="item active">
+                <img src="https://i.imgur.com/NcxiCh7.gif">
+                <div class="content">
+                    <h2>Kalan + Banga</h2>
+                    <p>The Calamba Banga is a famous landmark in Calamba City, Laguna, symbolizing the city’s name and
+                        history. The word Calamba comes from the Tagalog words "kalan" (stove) and "banga" (clay pot),
+                        inspired by a legend where locals pointed to a clay pot when Spanish friars asked about the
+                        town’s name.
+                        The Calamba Banga represents the city's identity and its rich cultural heritage.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <video src="https://i.imgur.com/CUgAcoS.mp4" autoplay muted loop playsinline>
+                </video>
+                <div class="content">
+                    <h2>Jose Rizal Monument</h2>
+                    <p>The José Rizal Monument in Calamba City, Laguna is a towering tribute to the Philippines’
+                        national hero, Dr. José Rizal, located in his hometown.
+                        The José Rizal Monument stands as a powerful symbol of patriotism and a reminder of Rizal’s
+                        contributions to Philippine independence.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <video src="https://i.imgur.com/ZC6ZEef.mp4" autoplay muted loop playsinline></video>
+                <div class="content">
+                    <h2>Jose Rizal Colesium</h2>
+                    <p>The José Rizal Coliseum is a multipurpose sports and event venue in Calamba City, Laguna,
+                        named in honor of the national hero, Dr. José Rizal.
+                        The José Rizal Coliseum serves as a hub for sports, culture, and entertainment in Calamba
+                        City.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <video src="https://i.imgur.com/X1Fjy23.mp4" autoplay muted loop playsinline></video>
+                <div class="content">
+                    <h2>Rizal Shrine</h2>
+                    <p>The José Rizal Shrine in Calamba City, Laguna, is a historical museum and national landmark
+                        commemorating the life and legacy of Dr. José Rizal, the Philippines’ national hero.
+                        The José Rizal Shrine is a treasured reminder of Rizal’s contributions to Philippine
+                        independence and his enduring impact on Filipino identity.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <video src="https://i.imgur.com/VmEmPZC.mp4" autoplay muted loop playsinline></video>
+                <div class="content">
+                    <h2>Buhayani Festival</h2>
+                    <p>The Buhayani Festival is an annual celebration in Calamba City, Laguna that honors the legacy
+                        of Dr. José Rizal and promotes the values of heroism (buhay ng bayani)
+                        The Buhayani Festival is a vibrant tribute to Dr. Rizal’s enduring influence and the heroism
+                        he represents.</p>
+                </div>
+            </div>
+            <div class="item">
+                <video src="https://i.imgur.com/EzNyTYZ.mp4" autoplay muted loop playsinline></video>
+                <div class="content">
+                    <h2>Calamba City Hall</h2>
+                    <p>The Calamba City Hall is a prominent government building in Calamba City, Laguna, known for
+                        its modern design and its role as the center of local governance.
+                        Calamba City is a vibrant mix of history, culture, and modern development, making it one of
+                        the most dynamic cities in the Philippines.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+
+        <div class="thumbnail">
+            <div class="item active" data-index="0">
+                <img src="https://i.imgur.com/OFYwlAS.png">
+                <div class="content">Kalan + Banga</div>
+                <button class="visit-btn" data-target-slide="0">Visit</button>
+            </div>
+            <div class="item" data-index="1">
+                <img src="https://i.imgur.com/6LtR3FD.png">
+                <div class="content">Monument</div>
+                <button class="visit-btn" data-target-slide="1">Visit</button>
+            </div>
+            <div class="item" data-index="2">
+                <img src="https://i.imgur.com/LBLQSTE.png">
+                <div class="content">Colesium</div>
+                <button class="visit-btn" data-target-slide="2">Visit</button>
+            </div>
+            <div class="item" data-index="3">
+                <img src="https://i.imgur.com/CDhJASz.png">
+                <div class="content">Rizal Shrine</div>
+                <button class="visit-btn" data-target-slide="3">Visit</button>
+            </div>
+            <div class="item" data-index="4">
+                <img src="https://i.imgur.com/ktv1f4G.png">
+                <div class="content">Buhayani Festival</div>
+                <button class="visit-btn" data-target-slide="4">Visit</button>
+            </div>
+            <div class="item" data-index="5">
+                <img src="https://i.imgur.com/ox3mcsk.png">
+                <div class="content">Calamba City Hall</div>
+                <button class="visit-btn" data-target-slide="5">Visit</button>
+            </div>
+        </div>
+
+        <script>
+            let items = document.querySelectorAll('.slider .list .item');
+            let next = document.getElementById('next');
+            let prev = document.getElementById('prev');
+            let thumbnails = document.querySelectorAll('.thumbnail .item');
+            let countItem = items.length;
+            let itemActive = 0;
+
+            next.onclick = function () {
+                itemActive = (itemActive + 1) % countItem;
+                showSlider();
+            }
+
+            prev.onclick = function () {
+                itemActive = (itemActive - 1 + countItem) % countItem;
+                showSlider();
+            }
+
+            let refreshInterval = setInterval(() => {
+                next.click();
+            }, 5000);
+
+            function showSlider() {
+                document.querySelector('.slider .list .item.active').classList.remove('active');
+                document.querySelector('.thumbnail .item.active').classList.remove('active');
+                items[itemActive].classList.add('active');
+                thumbnails[itemActive].classList.add('active');
+                setPositionThumbnail();
+                clearInterval(refreshInterval);
+                refreshInterval = setInterval(() => { next.click(); }, 5000);
+            }
+
+            function setPositionThumbnail() {
+                let thumbnailActive = document.querySelector('.thumbnail .item.active');
+                let rect = thumbnailActive.getBoundingClientRect();
+                if (rect.left < 0 || rect.right > window.innerWidth) {
+                    thumbnailActive.scrollIntoView({ behavior: 'smooth', inline: 'nearest' });
+                }
+            }
+        </script>
+    </section>
+
+    <section id="mustvisit" class="container mt-5">
+        <div class="banner">
+            <h2>Must Visit!</h2>
+            <p>"Discover Calamba, where rich heritage meets modern charm in the heart of Laguna! From serene landscapes
+                to vibrant traditions, this city promises unforgettable experiences at every turn."</p>
+        </div>
+
+        <!-- carousel -->
+        <div id="carouselExample" class="carousel slide mt-5" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://i.imgur.com/9MqcY5w.jpeg" class="d-block w-100" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.imgur.com/CeCK2FL.jpeg" class="d-block w-100" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.imgur.com/4B3Oukq.jpeg" class="d-block w-100" alt="Slide 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.imgur.com/3jQ6s3I.jpeg" class="d-block w-100" alt="Slide 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.imgur.com/Afm9YVE.jpeg" class="d-block w-100" alt="Slide 5">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.imgur.com/KpLOh9e.jpeg" class="d-block w-100" alt="Slide 6">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </section>
+
+    <section id="about" class="container mt-5">
+        <!-- city profile -->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <div class="city-logo">
+                        <img src="https://i.imgur.com/rxjNwhK.png" alt="City Logo" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="city-content">
+                        <h3>City Profile</h3>
+                        <p>Calamba City: The Heart of Laguna
+                            Calamba City is a vibrant destination where history and modernity blend seamlessly. Known as
+                            the birthplace of national hero Dr. Jose Rizal, the city boasts a rich cultural heritage
+                            alongside thriving urban development. Surrounded by lush landscapes and soothing hot
+                            springs, it’s perfect for relaxation and adventure. With its welcoming community and dynamic
+                            spirit, Calamba offers travelers a unique mix of tradition, nature, and progress.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="city-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.9658704687195!2d121.15928310000001!3d14.196776799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd6351cd86ae4f%3A0x2f1beef02f6ff247!2sJose%20Rizal%20Coliseum!5e0!3m2!1sen!2sph!4v1731605144752!5m2!1sen!2sph"
+                            class="responsive-map" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const visitButtons = document.querySelectorAll('.visit-btn');
+        const carousel = document.querySelector('#carouselExample');
+
+        visitButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const targetSlide = button.getAttribute('data-target-slide');
+
+                const carouselInstance = new bootstrap.Carousel(carousel);
+                carouselInstance.to(parseInt(targetSlide, 10)); 
+
+                carousel.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>alyzzamichaeladelacruz</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
