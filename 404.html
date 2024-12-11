@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap");
+
+        body {
+            font-family: "Poppins", "sans-serif";
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar,
+        .footer {
+            background-color: #a53860;
+            font-family: "Poppins", "sans-serif";
+        }
+
+        .navbar-brand,
+        .nav-link,
+        .footer-text {
+            color: #ffffff;
+            font-family: "Poppins", "sans-serif";
+        }
+
+        img {
+            max-width: 50%;
+            max-height: 50%;
+            height: auto;
+            width: auto;
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                justify-content: center;
+                align-items: center;
+            }
+
+            img {
+                max-width: 75%;
+                max-height: 75%;
+            }
+        }
+
+        /* Symmetrical scrapbook image styles */
+        .random-image {
+            position: absolute;
+            width: 12%;
+            height: auto;
+            transition: transform 1s;
+        }
+
+        /* Rotate effect */
+        .rotate_01 {
+            display: block;
+            transition: transform 1s;
+        }
+
+        .rotate_01:hover {
+            transform: rotate(360deg);
+        }
+
+        /* Image positions (symmetrical scrapbook effect) */
+        .image-1 { top: 10%; left: 10%; }
+        .image-2 { top: 10%; left: 30%; }
+        .image-3 { top: 10%; left: 50%; }
+        .image-4 { top: 10%; left: 70%; }
+        .image-5 { top: 40%; left: 10%; }
+        .image-6 { top: 40%; left: 30%; }
+        .image-7 { top: 40%; left: 50%; }
+        .image-8 { top: 40%; left: 70%; }
+        .image-9 { top: 70%; left: 10%; }
+        .image-10 { top: 70%; left: 30%; }
+        .image-11 { top: 70%; left: 50%; }
+        .image-12 { top: 70%; left: 70%; }
+
+    </style>
+</head>
+
+<body>
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://alyzzamichaeladelacruz.github.io/">alyzzamichaeladelacruz</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <img src="https://i.imgur.com/SjaKTYB.png" alt="Centered Image">
+
+    <!-- Symmetrical scrapbook images with rotate functionality -->
+    <img src="https://i.imgur.com/I0f6v5P.png" alt="Random Image 1" class="random-image rotate_01 image-1">
+    <img src="https://i.imgur.com/Ea0Gykd.png" alt="Random Image 2" class="random-image rotate_01 image-2">
+    <img src="https://i.imgur.com/I0f6v5P.png" alt="Random Image 3" class="random-image rotate_01 image-3">
+    <img src="https://i.imgur.com/Ea0Gykd.png" alt="Random Image 4" class="random-image rotate_01 image-4">
+    <img src="https://i.imgur.com/JvT7QhE.png" alt="Random Image 5" class="random-image rotate_01 image-5">
+    <img src="https://i.imgur.com/Xqlf78b.png" alt="Random Image 6" class="random-image rotate_01 image-6">
+    <img src="https://i.imgur.com/JvT7QhE.png" alt="Random Image 7" class="random-image rotate_01 image-7">
+    <img src="https://i.imgur.com/Xqlf78b.png" alt="Random Image 8" class="random-image rotate_01 image-8">
+    <img src="https://i.imgur.com/I0f6v5P.png" alt="Random Image 9" class="random-image rotate_01 image-9">
+    <img src="https://i.imgur.com/vMnK9dL.png" alt="Random Image 10" class="random-image rotate_01 image-10">
+    <img src="https://i.imgur.com/I0f6v5P.png" alt="Random Image 11" class="random-image rotate_01 image-11">
+    <img src="https://i.imgur.com/vMnK9dL.png" alt="Random Image 12" class="random-image rotate_01 image-12">
+
+</body>
+
+</html>
